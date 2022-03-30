@@ -31,3 +31,6 @@
 
 # Ignore enviroments variables
 .env
+
+# Ignore coverage files
+coverage
