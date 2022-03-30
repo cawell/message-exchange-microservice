@@ -1,4 +1,4 @@
-FROM ruby:3.1.0
+FROM ruby:3.1.1
 
 WORKDIR /www/service
 
@@ -15,6 +15,12 @@ RUN echo "America/Sao_Paulo" > /etc/timezone && \
   echo 'LANGUAGE="pt_BR.UTF-8"'>/etc/default/locale && \
   dpkg-reconfigure --frontend=noninteractive locales && \
   update-locale LANG=pt_BR.UTF-8
+
+ENV LC_ALL=pt_BR.UTF-8
+ENV LANG=pt_BR.UTF-8
+ENV LANGUAGE=pt_BR.UTF-8
+ENV TZ America/Sao_Paulo
+ENV TIME_ZONE Brasilia
 
 COPY Gemfile /www/service/Gemfile
 COPY Gemfile.lock /www/service/Gemfile.lock
