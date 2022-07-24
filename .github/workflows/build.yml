@@ -37,6 +37,8 @@ jobs:
         run: bundle exec rspec
       - name: Lint Ruby files
         run: bundle exec rubocop --parallel --fail-level F --format json --out rubocop-result.json
+      - name: Security audit application code
+        run: bundle exec brakeman -o brakeman/output.sonar
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
