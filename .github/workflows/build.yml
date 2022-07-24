@@ -36,7 +36,7 @@ jobs:
       - name: Unit tests and coverage report
         run: bundle exec rspec --format doc
       - name: Lint Ruby files
-        run: bundle exec rubocop --parallel --fail-level F --format json --out rubocop-report.json
+        run: bundle exec rubocop --parallel --fail-level F --format json --out rubocop-result.json
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
