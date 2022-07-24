@@ -27,7 +27,7 @@ jobs:
       POSTGRES_DB: name_database
       POSTGRES_USER: postgres_user
       POSTGRES_PASSWORD: password
-      DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+      DATABASE_URL: "postgres://postgres_user:password@localhost:5432/rails_test"
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
