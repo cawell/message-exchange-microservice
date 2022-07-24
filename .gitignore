@@ -34,3 +34,4 @@
 
 # Ignore coverage files
 coverage
+/config/credentials/test.key
