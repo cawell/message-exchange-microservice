@@ -35,10 +35,10 @@ jobs:
       # Add or replace test runners here
       - name: Unit tests and coverage report
         run: bundle exec rspec
-      - name: Lint Ruby files
-        run: bundle exec rubocop --parallel --fail-level F --format json --out rubocop-result.json
-      - name: Security audit application code
-        run: bundle exec brakeman -o brakeman/output.sonar
+      # - name: Lint Ruby files
+      #   run: bundle exec rubocop --parallel --fail-level F --format json --out rubocop-result.json
+      # - name: Security audit application code
+      #   run: bundle exec brakeman -o brakeman/output.sonar
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
