@@ -34,4 +34,7 @@
 
 # Ignore coverage files
 coverage
-/config/credentials/test.key
+
+# Ignore Credentials
+/config/credentials/development.key
+/config/credentials/production.key
