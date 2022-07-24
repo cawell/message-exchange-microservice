@@ -127,6 +127,7 @@ GEM
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
+    json (2.6.2)
     jwt (2.3.0)
     kwalify (0.7.2)
     launchy (2.5.0)
@@ -264,6 +265,9 @@ GEM
       simplecov-html (~> 0.11)
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
+    simplecov-json (0.2.3)
+      json
+      simplecov
     simplecov_json_formatter (0.1.4)
     strscan (3.0.4)
     thor (1.2.1)
@@ -307,6 +311,7 @@ DEPENDENCIES
   rubycritic
   shoulda-matchers (~> 5.0)
   simplecov
+  simplecov-json
   tzinfo-data
 
 RUBY VERSION

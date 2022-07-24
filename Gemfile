@@ -60,3 +60,5 @@ group :development do
   gem 'rubocop-rspec'
   gem 'rubycritic', require: false
 end
+
+gem 'simplecov-json', :require => false, :group => :test
