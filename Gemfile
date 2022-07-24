@@ -44,18 +44,19 @@ gem 'cancancan'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'bundler-audit'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec-rails', '~> 5.1', '>= 5.1.1'
   gem 'factory_bot_rails'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+  gem 'rspec-rails', '~> 5.1', '>= 5.1.1'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
 end
 
 group :development do
+  gem 'brakeman'
   gem 'rubocop', require: false
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
-  gem 'brakeman'
-  gem "rubycritic", require: false
+  gem 'rubycritic', require: false
 end

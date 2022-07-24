@@ -2,7 +2,6 @@
 
 class HomeController < ApplicationController
   def show
-    
     render json: {
       rails_env: Rails.env,
       ruby_version: RUBY_VERSION,

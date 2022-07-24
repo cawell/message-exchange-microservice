@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :set_user, only: %i[update show destroy]
 
@@ -5,13 +7,13 @@ class UsersController < ApplicationController
     @users = User.all
 
     ChatMessagesChannel.broadcast_to(
-      "chat_messages_channel",
+      'chat_messages_channel',
       title: 'New things!',
       body: 'All the news fit to print'
     )
 
-    render json: { 
-      user: @users.as_json(except: [:password_digest, :created_at, :updated_at]) 
+    render json: {
+      user: @users.as_json(except: %i[password_digest created_at updated_at])
     }, status: :ok
   end
 
@@ -20,7 +22,7 @@ class UsersController < ApplicationController
 
     if @user.save
       render_as_success
-    else 
+    else
       render_as_error
     end
   end
@@ -47,28 +49,28 @@ class UsersController < ApplicationController
 
   private
 
-    def render_as_success
-      render json: { 
-        user: @user.as_json(except: [:password_digest, :created_at, :updated_at]) 
-      }, status: :ok
-    end
+  def render_as_success
+    render json: {
+      user: @user.as_json(except: %i[password_digest created_at updated_at])
+    }, status: :ok
+  end
 
-    def render_as_error
-      render json: { 
-        user: @user.as_json(except: [:password_digest, :created_at, :updated_at]), 
-        errors: @user.errors.messages 
-      }, status: :unprocessable_entity
-    end
+  def render_as_error
+    render json: {
+      user: @user.as_json(except: %i[password_digest created_at updated_at]),
+      errors: @user.errors.messages
+    }, status: :unprocessable_entity
+  end
 
-    def user_params
-      params.require(:user).permit(
-        :name,
-        :email,
-        :password
-      )
-    end
+  def user_params
+    params.require(:user).permit(
+      :name,
+      :email,
+      :password
+    )
+  end
 
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 end

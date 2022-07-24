@@ -33,10 +33,10 @@ class Ability
 
     can :read, User
 
-    return unless user.present?  # additional permissions for logged in users (they can read their own posts)
-    
+    return unless user.present? # additional permissions for logged in users (they can read their own posts)
 
     return unless user.admin?  # additional permissions for administrators
+
     can :read, Post
   end
 end
