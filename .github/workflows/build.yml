@@ -1,8 +1,7 @@
 name: Build
 on:
   push:
-    branches:
-      - main # or the name of your main branch
+    branches: [ "main" ]
 jobs:
   build:
     name: Build
@@ -34,8 +33,8 @@ jobs:
       - name: Set up database schema
         run: bundle exec rails db:schema:load
       # Add or replace test runners here
-      - name: Run tests
-        run: bundle exec rake
+      - name: Unit tests and coverage report
+        run: bundle exec rspec --format doc
       - name: Lint Ruby files
         run: bundle exec rubocop --parallel --fail-level F --format json --out rubocop-report.json
       - uses: actions/checkout@v2
