@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 require 'simplecov'
-require 'simplecov-json'
+require "simplecov_json_formatter"
+
+SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter
 
 SimpleCov.start 'rails' do
   add_filter 'channels'
@@ -22,12 +24,6 @@ end
 # a separate helper file that requires the additional dependencies and performs
 # the additional setup, and require it from the spec files that actually need
 # it.
-# Generate HTML and JSON reports
-SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::HTMLFormatter,
-  SimpleCov::Formatter::JSONFormatter
-])
-
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
