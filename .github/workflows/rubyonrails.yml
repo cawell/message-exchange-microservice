@@ -19,12 +19,12 @@ jobs:
         ports:
           - "5432:5432"
         env:
-          POSTGRES_DB: name_database
+          POSTGRES_DB: rails_test
           POSTGRES_USER: postgres_user
           POSTGRES_PASSWORD: password
     env:
       RAILS_ENV: test
-      POSTGRES_DB: name_database
+      POSTGRES_DB: rails_test
       POSTGRES_USER: postgres_user
       POSTGRES_PASSWORD: password
       DATABASE_URL: "postgres://postgres_user:password@localhost:5432/rails_test"
