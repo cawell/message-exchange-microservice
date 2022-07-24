@@ -24,6 +24,9 @@ jobs:
           POSTGRES_PASSWORD: password
     env:
       RAILS_ENV: test
+      POSTGRES_DB: name_database
+      POSTGRES_USER: postgres_user
+      POSTGRES_PASSWORD: password
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
     steps:
       - name: Checkout code
