@@ -37,8 +37,8 @@ jobs:
       # Add or replace test runners here
       - name: Unit tests and coverage report
         run: bundle exec rspec
-        
-      - uses: actions/checkout@v2
+
+      - uses: actions/checkout@v1
         with:
           fetch-depth: 0
       - uses: sonarsource/sonarqube-scan-action@master
