@@ -22,13 +22,12 @@ jobs:
       POSTGRES_PASSWORD: password
       DATABASE_URL: "postgres://postgres_user:password@localhost:5432/rails_test"
     steps:
-       - uses: actions/checkout@v2
-
+      - name: Checkout code
+        uses: actions/checkout@v2
       # Add or replace dependency steps here
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
         with:
-          bundler: default
           bundler-cache: true
       
       # Add or replace database setup steps here
@@ -37,9 +36,8 @@ jobs:
       
       # Add or replace test runners here
       - name: Unit tests and coverage report
-        run: |
-          bundle exec rspec specs/
-
+        run: bundle exec rspec
+        
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
