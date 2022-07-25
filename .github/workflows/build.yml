@@ -22,39 +22,28 @@ jobs:
       POSTGRES_PASSWORD: password
       DATABASE_URL: "postgres://postgres_user:password@localhost:5432/rails_test"
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+       - uses: actions/checkout@v2
+
       # Add or replace dependency steps here
       - name: Install Ruby and gems
-        uses: ruby/setup-ruby@v2
+        uses: ruby/setup-ruby@v1
         with:
+          bundler: default
           bundler-cache: true
+      
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bundle exec rails db:schema:load
+      
       # Add or replace test runners here
       - name: Unit tests and coverage report
-        run: bundle exec rspec
-      # - name: Lint Ruby files
-      #   run: bundle exec rubocop --parallel --fail-level F --format json --out rubocop-result.json
-      # - name: Security audit application code
-      #   run: bundle exec brakeman -o brakeman/output.sonar
+        run: |
+          bundle exec rspec specs/
+
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      # Add or replace database setup steps here
-      - name: Set up database schema
-        run: bundle exec rails db:schema:load
-      # Add or replace test runners here
-      - name: Unit tests and coverage report
-        run: bundle exec rspec
       - uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      # If you wish to fail your job when the Quality Gate is red, uncomment the
-      # following lines. This would typically be used to fail a deployment.
-      # - uses: sonarsource/sonarqube-quality-gate-action@master
-      #   timeout-minutes: 5
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
