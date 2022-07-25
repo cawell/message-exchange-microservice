@@ -50,7 +50,7 @@ group :development, :test do
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   gem 'rspec-rails', '~> 5.1', '>= 5.1.1'
   gem 'shoulda-matchers', '~> 5.0'
-  gem 'simplecov', '~> 0.18.5'
+  gem 'simplecov', '~> 0.21.2'
 end
 
 group :development do
