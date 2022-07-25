@@ -32,8 +32,8 @@
 # Ignore enviroments variables
 .env
 
-# Ignore coverage files
-coverage
+# # Ignore coverage files
+# coverage/*
 
 # Ignore Credentials
 /config/credentials/development.key
