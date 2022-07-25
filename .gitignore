@@ -33,7 +33,7 @@
 .env
 
 # # Ignore coverage files
-# coverage/*
+coverage/*
 
 # Ignore Credentials
 /config/credentials/development.key
