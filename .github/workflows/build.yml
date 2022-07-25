@@ -38,9 +38,6 @@ jobs:
       - name: Unit tests and coverage report
         run: bundle exec rspec
 
-      - uses: actions/checkout@v1
-        with:
-          fetch-depth: 0
       - uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
